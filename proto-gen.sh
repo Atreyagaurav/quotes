@@ -1,0 +1,1 @@
+protoc --proto_path=api/proto --proto_path=$(go env GOPATH)/bin --go_out=plugins=grpc:pkg/api/ quotes.proto

@@ -1,0 +1,19 @@
+
+syntax = "proto3";
+package api;
+
+message QuoteResponse{
+    int64 id = 1;
+    string genre = 2;
+    string body =3;
+    string author =4;
+}
+
+message QuoteRequest{
+    int64 id = 1;
+    string genre =2;
+}
+
+service Quotes {
+    rpc Get(QuoteRequest) returns (QuoteResponse);
+}
