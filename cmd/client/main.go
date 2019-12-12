@@ -12,6 +12,7 @@ import (
 
 func main() {
 	address := flag.String("server", "", "gRPC server in format host:port")
+	genre := flag.String("genre", "", "genre of the quote to return")
 	flag.Parse()
 	conn, err := grpc.Dial(*address, grpc.WithInsecure())
 	if err != nil {
@@ -23,8 +24,8 @@ func main() {
 	defer cancel()
 	req := api.QuoteRequest{
 		Id:    1,
-		Genre: "test",
+		Genre: *genre,
 	}
 	res, err := c.Get(ctx, &req)
-	fmt.Println(res)
+	fmt.Printf(res.Body)
 }
