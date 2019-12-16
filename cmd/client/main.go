@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	address := flag.String("server", "", "gRPC server in format host:port")
+	address := flag.String("server", "localhost:9090", "gRPC server in format host:port")
 	genre := flag.String("genre", "", "genre of the quote to return")
 	flag.Parse()
 	conn, err := grpc.Dial(*address, grpc.WithInsecure())

@@ -16,7 +16,7 @@ type Config struct {
 func RunServer() error {
 	ctx := context.Background()
 	var cfg Config
-	flag.StringVar(&cfg.GRPCport, "port", "string", "Port for gRCP to bind")
+	flag.StringVar(&cfg.GRPCport, "port", "9090", "Port for gRCP to bind")
 	flag.Parse()
 	if len(cfg.GRPCport) == 0 {
 		return fmt.Errorf("Invalid port given:%s", cfg)
